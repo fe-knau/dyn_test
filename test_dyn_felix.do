@@ -1,6 +1,6 @@
 ***** File to run standardized tests for "did_multiplegt_dyn" before updating versions*****
 
-						*** Version: 28.04.25 ***
+						*** Version: 22.05.25 ***
 
 
 							*** Preamble ***
@@ -36,12 +36,12 @@ global save_path="C:\Users\Felix\Desktop\DID_programs\did_multiplegt_dyn\test_dy
 local dataset = "wagepan.dta"
 
 * Specify version to be saved with the log file 
-local version = "24_04_2025"
+local version = "pvalue_test_old"
 
 ********************************************************************************
 
 *** Initialize the version of the command one wants to test 
-do "C:\Users\Felix\Desktop\DID_programs\did_multiplegt_dyn\GitHub_updates\24_04_2025\did_multiplegt_dyn.ado"
+do "C:\Users\Felix\Desktop\DID_programs\did_multiplegt_dyn\test_dyn\Addition_Pvalues\did_multiplegt_dyn_old.ado"
 
 
 **# Bookmark #1
@@ -81,6 +81,9 @@ if "`dataset'"=="wagepan.dta"{
 	
 	* predict_het variable 
 	local het_var = "black"
+	
+	* effects to test in effects-equal
+	local eff_eq="all"
 }
 
 if "$dataset"=="favara_imbs.dta"{
@@ -185,6 +188,10 @@ matrix xx_int=e(N_switchers_effect_average)
 matrix rownames xx_int = "N_switchers_effect_average" 
 mat store_results=store_results\xx_int
 
+matrix xx_int=e(p_jointeffects)
+matrix rownames xx_int = "p_jointeffects" 
+mat store_results=store_results\xx_int
+
 *****************************************************
 
 // Placebos 
@@ -223,6 +230,10 @@ forvalues j=1/`n_pl'{
 	matrix rownames xx_int = "N_switchers_placebo_`j'" 	
 	mat store_results=store_results\xx_int
 }
+
+matrix xx_int=e(p_jointeffects)
+matrix rownames xx_int = "p_jointeffects" 
+mat store_results=store_results\xx_int
 
 matrix xx_int=e(p_jointplacebo)
 matrix rownames xx_int = "p_jointplacebo" 
@@ -267,6 +278,10 @@ forvalues j=1/`n_pl'{
 	mat store_results=store_results\xx_int
 }
 
+matrix xx_int=e(p_jointeffects)
+matrix rownames xx_int = "p_jointeffects" 
+mat store_results=store_results\xx_int
+
 matrix xx_int=e(p_jointplacebo)
 matrix rownames xx_int = "p_jointplacebo" 
 mat store_results=store_results\xx_int
@@ -309,6 +324,10 @@ forvalues j=1/`n_pl'{
 	matrix rownames xx_int = "N_switchers_placebo_`j'" 	
 	mat store_results=store_results\xx_int
 }
+
+matrix xx_int=e(p_jointeffects)
+matrix rownames xx_int = "p_jointeffects" 
+mat store_results=store_results\xx_int
 
 matrix xx_int=e(p_jointplacebo)
 matrix rownames xx_int = "p_jointplacebo" 
@@ -353,6 +372,10 @@ forvalues j=1/`n_pl'{
 	mat store_results=store_results\xx_int
 }
 
+matrix xx_int=e(p_jointeffects)
+matrix rownames xx_int = "p_jointeffects" 
+mat store_results=store_results\xx_int
+
 matrix xx_int=e(p_jointplacebo)
 matrix rownames xx_int = "p_jointplacebo" 
 mat store_results=store_results\xx_int
@@ -395,6 +418,10 @@ forvalues j=1/`n_pl'{
 	matrix rownames xx_int = "N_switchers_placebo_`j'" 	
 	mat store_results=store_results\xx_int
 }
+
+matrix xx_int=e(p_jointeffects)
+matrix rownames xx_int = "p_jointeffects" 
+mat store_results=store_results\xx_int
 
 matrix xx_int=e(p_jointplacebo)
 matrix rownames xx_int = "p_jointplacebo" 
@@ -439,6 +466,10 @@ forvalues j=1/`n_pl'{
 	mat store_results=store_results\xx_int
 }
 
+matrix xx_int=e(p_jointeffects)
+matrix rownames xx_int = "p_jointeffects" 
+mat store_results=store_results\xx_int
+
 matrix xx_int=e(p_jointplacebo)
 matrix rownames xx_int = "p_jointplacebo" 
 mat store_results=store_results\xx_int
@@ -481,6 +512,10 @@ forvalues j=1/`n_pl'{
 	matrix rownames xx_int = "N_switchers_placebo_`j'" 	
 	mat store_results=store_results\xx_int
 }
+
+matrix xx_int=e(p_jointeffects)
+matrix rownames xx_int = "p_jointeffects" 
+mat store_results=store_results\xx_int
 
 matrix xx_int=e(p_jointplacebo)
 matrix rownames xx_int = "p_jointplacebo" 
@@ -525,6 +560,10 @@ forvalues j=1/`n_pl'{
 	mat store_results=store_results\xx_int
 }
 
+matrix xx_int=e(p_jointeffects)
+matrix rownames xx_int = "p_jointeffects" 
+mat store_results=store_results\xx_int
+
 matrix xx_int=e(p_jointplacebo)
 matrix rownames xx_int = "p_jointplacebo" 
 mat store_results=store_results\xx_int
@@ -567,6 +606,10 @@ forvalues j=1/`n_pl'{
 	matrix rownames xx_int = "N_switchers_placebo_`j'" 	
 	mat store_results=store_results\xx_int
 }
+
+matrix xx_int=e(p_jointeffects)
+matrix rownames xx_int = "p_jointeffects" 
+mat store_results=store_results\xx_int
 
 matrix xx_int=e(p_jointplacebo)
 matrix rownames xx_int = "p_jointplacebo" 
@@ -611,6 +654,10 @@ forvalues j=1/`n_pl'{
 	mat store_results=store_results\xx_int
 }
 
+matrix xx_int=e(p_jointeffects)
+matrix rownames xx_int = "p_jointeffects" 
+mat store_results=store_results\xx_int
+
 matrix xx_int=e(p_jointplacebo)
 matrix rownames xx_int = "p_jointplacebo" 
 mat store_results=store_results\xx_int
@@ -653,6 +700,10 @@ forvalues j=1/`n_pl'{
 	matrix rownames xx_int = "N_switchers_placebo_`j'" 	
 	mat store_results=store_results\xx_int
 }
+
+matrix xx_int=e(p_jointeffects)
+matrix rownames xx_int = "p_jointeffects" 
+mat store_results=store_results\xx_int
 
 matrix xx_int=e(p_jointplacebo)
 matrix rownames xx_int = "p_jointplacebo" 
@@ -697,6 +748,10 @@ forvalues j=1/`n_pl'{
 	mat store_results=store_results\xx_int
 }
 
+matrix xx_int=e(p_jointeffects)
+matrix rownames xx_int = "p_jointeffects" 
+mat store_results=store_results\xx_int
+
 matrix xx_int=e(p_jointplacebo)
 matrix rownames xx_int = "p_jointplacebo" 
 mat store_results=store_results\xx_int
@@ -739,6 +794,10 @@ forvalues j=1/`n_pl'{
 	matrix rownames xx_int = "N_switchers_placebo_`j'" 	
 	mat store_results=store_results\xx_int
 }
+
+matrix xx_int=e(p_jointeffects)
+matrix rownames xx_int = "p_jointeffects" 
+mat store_results=store_results\xx_int
 
 matrix xx_int=e(p_jointplacebo)
 matrix rownames xx_int = "p_jointplacebo" 
@@ -783,6 +842,10 @@ forvalues j=1/`n_pl'{
 	mat store_results=store_results\xx_int
 }
 
+matrix xx_int=e(p_jointeffects)
+matrix rownames xx_int = "p_jointeffects" 
+mat store_results=store_results\xx_int
+
 matrix xx_int=e(p_jointplacebo)
 matrix rownames xx_int = "p_jointplacebo" 
 mat store_results=store_results\xx_int
@@ -823,6 +886,10 @@ forvalues j=1/`n_pl'{
 	matrix rownames xx_int = "N_switchers_placebo_`j'" 	
 	mat store_results=store_results\xx_int
 }
+
+matrix xx_int=e(p_jointeffects)
+matrix rownames xx_int = "p_jointeffects" 
+mat store_results=store_results\xx_int
 
 matrix xx_int=e(p_jointplacebo)
 matrix rownames xx_int = "p_jointplacebo" 
@@ -867,6 +934,10 @@ forvalues j=1/`n_pl'{
 	mat store_results=store_results\xx_int
 }
 
+matrix xx_int=e(p_jointeffects)
+matrix rownames xx_int = "p_jointeffects" 
+mat store_results=store_results\xx_int
+
 matrix xx_int=e(p_jointplacebo)
 matrix rownames xx_int = "p_jointplacebo" 
 mat store_results=store_results\xx_int
@@ -909,6 +980,10 @@ forvalues j=1/`n_pl'{
 	matrix rownames xx_int = "N_switchers_placebo_`j'" 	
 	mat store_results=store_results\xx_int
 }
+
+matrix xx_int=e(p_jointeffects)
+matrix rownames xx_int = "p_jointeffects" 
+mat store_results=store_results\xx_int
 
 matrix xx_int=e(p_jointplacebo)
 matrix rownames xx_int = "p_jointplacebo" 
@@ -953,9 +1028,66 @@ forvalues j=1/`n_pl'{
 	mat store_results=store_results\xx_int
 }
 
+matrix xx_int=e(p_jointeffects)
+matrix rownames xx_int = "p_jointeffects" 
+mat store_results=store_results\xx_int
+
 matrix xx_int=e(p_jointplacebo)
 matrix rownames xx_int = "p_jointplacebo" 
 mat store_results=store_results\xx_int
+
+*****************************************************
+
+// effects-equal
+did_multiplegt_dyn `y' `g' `t' `d', graph_off effects(`n_eff') placebo(`n_pl') effects_equal(`eff_eq')
+mat rownames A="Effects_Equal"
+mat store_results=store_results\A
+mat store_results=store_results\e(estimates)[1..`n_eff'+`n_pl'+1,1]
+mat store_results=store_results\e(variances)[1..`n_eff'+`n_pl'+1,1]
+
+forvalues j=1/`n_eff'{
+	matrix xx_int=e(N_effect_`j')
+	matrix rownames xx_int = "N_effect_`j'" 
+	mat store_results=store_results\xx_int
+	
+	matrix xx_int=e(N_switchers_effect_`j')
+	matrix rownames xx_int = "N_switchers_effect_`j'" 
+	mat store_results=store_results\xx_int
+}
+// Do we not report p-value from joint test of significance effects as ereturn???
+
+matrix xx_int=e(N_avg_total_effect)
+matrix rownames xx_int = "N_avg_total_effect" 
+mat store_results=store_results\xx_int
+
+matrix xx_int=e(N_switchers_effect_average)
+matrix rownames xx_int = "N_switchers_effect_average" 
+mat store_results=store_results\xx_int
+
+forvalues j=1/`n_pl'{
+	
+	matrix xx_int=e(N_placebo_`j')
+	matrix rownames xx_int = "N_placebo_`j'" 
+	mat store_results=store_results\xx_int
+	
+	matrix xx_int=e(N_switchers_placebo_`j')
+	matrix rownames xx_int = "N_switchers_placebo_`j'" 	
+	mat store_results=store_results\xx_int
+}
+
+matrix xx_int=e(p_jointeffects)
+matrix rownames xx_int = "p_jointeffects" 
+mat store_results=store_results\xx_int
+
+matrix xx_int=e(p_jointplacebo)
+matrix rownames xx_int = "p_jointplacebo" 
+mat store_results=store_results\xx_int
+
+matrix xx_int=e(p_equality_effects)
+matrix rownames xx_int = "p_equality_effects" 
+mat store_results=store_results\xx_int
+
+*****************************************************
 
 * End main log 
 log close
@@ -970,7 +1102,7 @@ preserve
 	order Effect results_`version'
 	local dim (`= rowsof(store_results)')
 	drop if _n>`dim'
-	save "$save_path/datasets/data_`version'.dta",replace // FELIX: DELETE THE REPLACE AT THE END TO NOT OVERWRITE DATASET BY ACCIDENT This is just for testing purpose
+	save "$save_path/datasets/data_`version'.dta" // FELIX: DELETE THE REPLACE AT THE END TO NOT OVERWRITE DATASET BY ACCIDENT This is just for testing purpose
 restore 
 
 // Working on storing the results, exclude the second part for now
